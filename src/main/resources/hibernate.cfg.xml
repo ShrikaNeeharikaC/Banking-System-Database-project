@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@//localhost:1521/xe</property>
+        <property name="connection.username">system</property>
+        <property name="connection.password">neeha</property>
+
+        <!-- JDBC connection pool (use a production-ready pool for real apps) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <!-- This has been updated from the deprecated Oracle12cDialect -->
+        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup (use "validate" or "update" in production) -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Names the annotated entity classes -->
+        <mapping class="com.minibanking.model.Customer"/>
+        <mapping class="com.minibanking.model.Account"/>
+        <mapping class="com.minibanking.model.Transaction"/>
+
+    </session-factory>
+</hibernate-configuration>
+

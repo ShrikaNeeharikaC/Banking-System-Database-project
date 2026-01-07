@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.minibanking.view.MainViewController">
+    <children>
+        <TabPane layoutX="14.0" layoutY="14.0" prefHeight="572.0" prefWidth="772.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+            <tabs>
+                <Tab text="Customers">
+                    <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <children>
+                                <Label text="Customer Management">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <GridPane hgap="10.0" maxWidth="400.0" vgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="First Name:" />
+                                        <Label text="Last Name:" GridPane.rowIndex="1" />
+                                        <Label text="Address:" GridPane.rowIndex="2" />
+                                        <Label text="Phone:" GridPane.rowIndex="3" />
+                                        <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
+                                        <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    </children>
+                                </GridPane>
+                                <Button mnemonicParsing="false" onAction="#handleAddCustomer" text="Add Customer" />
+                                <TableView fx:id="customerTable" prefHeight="300.0" prefWidth="752.0">
+                                    <columns>
+                                        <TableColumn fx:id="customerIdColumn" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="firstNameColumn" prefWidth="200.0" text="First Name" />
+                                        <TableColumn fx:id="lastNameColumn" prefWidth="200.0" text="Last Name" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Accounts">
+                    <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label text="Account Management">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <GridPane hgap="10.0" maxWidth="400.0" vgap="5.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Customer:" />
+                                        <Label text="Account Type:" GridPane.rowIndex="1" />
+                                        <Label text="Initial Balance:" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="customerComboBox" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <ComboBox fx:id="accountTypeComboBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="initialBalanceField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    </children>
+                                </GridPane>
+                                <Button mnemonicParsing="false" onAction="#handleAddAccount" text="Create Account" />
+                                <TableView fx:id="accountTable" prefHeight="300.0" prefWidth="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="accountIdColumn" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="accountNumberColumn" prefWidth="250.0" text="Account Number" />
+                                        <TableColumn fx:id="accountTypeColumn" prefWidth="150.0" text="Type" />
+                                        <TableColumn fx:id="balanceColumn" prefWidth="150.0" text="Balance" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+                <Tab text="Transactions">
+                    <content>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <children>
+                                <Label text="Perform Transactions">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label text="Deposit">
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="depositAccountComboBox" prefWidth="150.0" promptText="Select Account" />
+                                                <TextField fx:id="depositAmountField" promptText="Amount" />
+                                                <Button mnemonicParsing="false" onAction="#handleDeposit" text="Deposit" />
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label text="Withdraw">
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="withdrawAccountComboBox" prefWidth="150.0" promptText="Select Account" />
+                                                <TextField fx:id="withdrawAmountField" promptText="Amount" />
+                                                <Button mnemonicParsing="false" onAction="#handleWithdraw" text="Withdraw" />
+                                            </children>
+                                        </VBox>
+                                        <VBox spacing="10.0">
+                                            <children>
+                                                <Label text="Transfer">
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="transferFromComboBox" prefWidth="150.0" promptText="From Account" />
+                                                <ComboBox fx:id="transferToComboBox" prefWidth="150.0" promptText="To Account" />
+                                                <TextField fx:id="transferAmountField" promptText="Amount" />
+                                                <Button mnemonicParsing="false" onAction="#handleTransfer" text="Transfer" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <Separator prefWidth="200.0" />
+                                <Label text="Transaction History">
+                                    <font>
+                                        <Font name="System Bold" size="16.0" />
+                                    </font>
+                                </Label>
+                                <TableView fx:id="transactionTable" prefHeight="200.0" prefWidth="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="transactionIdColumn" prefWidth="50.0" text="ID" />
+                                        <TableColumn fx:id="transactionTypeColumn" prefWidth="100.0" text="Type" />
+                                        <TableColumn fx:id="transactionAmountColumn" prefWidth="100.0" text="Amount" />
+                                        <TableColumn fx:id="transactionDateColumn" prefWidth="150.0" text="Date" />
+                                        <TableColumn fx:id="fromAccountColumn" prefWidth="175.0" text="From Account" />
+                                        <TableColumn fx:id="toAccountColumn" prefWidth="175.0" text="To Account" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
+
